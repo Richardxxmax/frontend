@@ -1,0 +1,17 @@
+/*Mobile css */
+
+    .headerContainer{
+
+        display: flex;
+        height: 90px;
+       
+
+        background-color: white;
+    }
+
+    .profilephoto{
+       width: 150px;
+       height: 90px;
+
+       margin-bottom: 0px;
+    }
