@@ -169,7 +169,7 @@ function FacebookCircularProgress(props) {
 
 
     useEffect(()=>{
-        if(state.status===201)
+        if(state.status===200)
         {
          setServerStatus(state.status)
          setServerMessage(state.message)
@@ -201,7 +201,7 @@ function FacebookCircularProgress(props) {
     return(
         <div>
         <Header />
-        {serverStatus===201?<SuccessAlert text={serverMessage} />:<div></div>}
+        {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}
         {serverStatus===403?<WarningAlert text={serverMessage} />:<div></div>}
         {serverStatus===404?<WarningAlert text={serverMessage} />:<div></div>}
         {serverStatus===500?<ErrorAlert text={serverMessage} />:<div></div>}
@@ -261,7 +261,7 @@ function FacebookCircularProgress(props) {
          
      
         </div>
-        {serverStatus===201?<SuccessAlert text={serverMessage} />:<div></div>}
+        {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}
         {serverStatus===403?<WarningAlert text={serverMessage} />:<div></div>}
         {serverStatus===404?<WarningAlert text={serverMessage} />:<div></div>}
         {serverStatus===500?<ErrorAlert text={serverMessage} />:<div></div>}

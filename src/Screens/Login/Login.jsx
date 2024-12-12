@@ -17,7 +17,6 @@ const Login = ()=>{
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [isLoading, setLoading] = useState(false);
-    const [mismatch,setMismatch] = useState(0)
     const [validation,setValidation]= useState(false)
     const [emailExisted,setEmailExisted] = useState(0)
     const [invalidEmail,setInvalideEmail] = useState(0)
@@ -125,8 +124,9 @@ const Login = ()=>{
 
 
     useEffect(()=>{
-        if(state.status===202){//Login successfully
+        if(state.status===200){//Login successfully
               const {id,email,firstName,lastName,isAdmin} = state.user
+              setLoading(false)
              //dispatch(setToken(state.token))
              //dispatch(setIsLoggedIn(true))
              //dispatch(SetEmail(email))
@@ -135,24 +135,19 @@ const Login = ()=>{
              //dispatch(SetAdmin(isAdmin))
              //dispatch(setIsLoggedOut(false)) //Prevent double login
              //dispatch(setID(id))
+             setServerStatus(state.status)
+             setServerMessage(state.message)
+             setEmailExisted(0)
              setTimeout(()=>{
                // navigate("/home")
             },1000)
        
             
-            }else if(state.status===401){//Incorrect password
+            }else {//Incorrect password
+              setServerStatus(state.status)
+              setServerMessage(state.message)
               setLoading(false)
-              setMismatch(1)
               
-            }else if(state.status===403){//Incorrect password
-              setLoading(false)
-              setMismatch(1)
-              
-            }else if(state.status===404){//Invalid email 
-                   setEmailExisted(0);
-                   setInvalideEmail(1);
-                   setLoading(false)
-        
             }
   },[state]);
 
@@ -160,7 +155,12 @@ const Login = ()=>{
     return(
         <div>
         <Header />
-   
+        {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}
+        {serverStatus===401?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===404?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===406?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===500?<ErrorAlert text={serverMessage} />:<div></div>}
+
         <div className='s1c1' >
           <img src={Logo} className='login-logo' alt = "capitalone logo" />
           <h6 className='s1t1'>Sign in</h6>
@@ -178,13 +178,19 @@ const Login = ()=>{
          </div>
 
          <div onClick={()=>SignIn()} className='s1c3'>
-            <p className='s1t6'>Sign in</p>
+            {isLoading?<FacebookCircularProgress />:<p className='s1t6'>Sign in</p>}
          </div>
  
          <h6 className='s1t7'>Forgot Username or Password?</h6>
 
          <h6 onClick={()=>navigate("signup")} className='s1t8'>Set Up an Online Access?</h6>
         </div>
+
+        {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}
+        {serverStatus===401?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===404?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===406?<WarningAlert text={serverMessage} />:<div></div>}
+        {serverStatus===500?<ErrorAlert text={serverMessage} />:<div></div>}
         <Footer />
         </div>
     )
