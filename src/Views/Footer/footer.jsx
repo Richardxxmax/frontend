@@ -9,12 +9,12 @@ const Footer = () =>{
   return(
      <footer>
 
-      <p> Contact us</p>
-      <p> Legal</p>
-      <p> Privacy</p>
-      <p> Security</p>
-      <p> Terms & Conditions</p>
-      <p> Accessibility</p>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Contact us</p></a>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Legal</p></a>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Privacy</p></a>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Security</p></a>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Terms & Conditions</p></a>
+      <a href="https://www.capitalone.com/help-center/contact-us/"><p> Accessibility</p></a>
 
      <img src={logo} className="footerlogo" />
      </footer>

@@ -10,6 +10,11 @@ footer p{
     font-size: 14px;
     margin-left: 28px;
     color: rgb(83, 83, 80);
+
+}
+
+footer a{
+  text-decoration: none;
 }
 
 footer img{
