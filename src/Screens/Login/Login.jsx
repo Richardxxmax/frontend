@@ -11,7 +11,7 @@ import CircularProgress, {
 import Box from '@mui/material/Box';
 import API from "../../API/API";
 import { useDispatch} from 'react-redux';
-import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken } from "../../Redux/Reducers/appState";
+import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken,setCreditScore,setCurrentBalance,setAvailableBalance } from "../../Redux/Reducers/appState";
 
 const Login = ()=>{
 
@@ -128,7 +128,11 @@ const Login = ()=>{
     useEffect(()=>{
         if(state.status===200){//Login successfully
               const {id,email,firstName,lastName,isAdmin} = state.user
+              const {creditScore,currentBalance,availableBalance} = state.account
               setLoading(false)
+            dispatch(setAvailableBalance(availableBalance))
+            dispatch(setCurrentBalance(currentBalance))
+            dispatch(setCreditScore(creditScore))
              dispatch(setToken(state.token))
              dispatch(setIsLoggedIn(true))
              dispatch(SetEmail(email))

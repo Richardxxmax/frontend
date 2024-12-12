@@ -45,10 +45,17 @@ setSuccessMessage: (state,action) => {
 },setToken: (state,action) => {     
   state.token = action.payload;
 },
+setCurrentBalance: (state,action) => {     
+  state.currentBalance = action.payload;
+},setAvailableBalance: (state,action) => {     
+  state.availableBalance = action.payload;
+},setCreditScore: (state,action) => {     
+  state.creditScore = action.payload;
+},
 },
 })
 
 // Action creators are generated for each case reducer function
-export const {setFirstName,setID,setIsLoggedIn,setIsLoggedOut,setLastName,SetEmail,SetAdmin,setSuccessMessage,setToken} = AppState.actions
+export const {setFirstName,setID,setIsLoggedIn,setIsLoggedOut,setLastName,SetEmail,SetAdmin,setSuccessMessage,setToken,setCreditScore,setAvailableBalance,setCurrentBalance} = AppState.actions
 
 export default AppState.reducer
