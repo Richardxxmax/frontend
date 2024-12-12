@@ -39,7 +39,7 @@ const  Account = () => {
         </div>
 
         <div className='s3c4'>
-            <AddCircleOutlineIcon   style={{color:"rgb(30, 89, 109)"}}/>
+            <AddCircleOutlineIcon   style={{color:"rgb(30, 89, 109)",marginRight:10}}/>
             <p>Open a New Account</p>
 
         </div>
