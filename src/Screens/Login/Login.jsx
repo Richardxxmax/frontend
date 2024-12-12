@@ -5,15 +5,17 @@ import Header from '../../Views/Header/Header'
 import Footer from '../../Views/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import { SuccessAlert,WarningAlert,ErrorAlert } from '../../components/Alerts/Alerts'
-
 import CircularProgress, {
     circularProgressClasses,
   } from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import API from "../../API/API";
-
+import { useDispatch} from 'react-redux';
+import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken } from "../../Redux/Reducers/appState";
 
 const Login = ()=>{
+
+    const dispatch = useDispatch();
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [isLoading, setLoading] = useState(false);
@@ -127,19 +129,19 @@ const Login = ()=>{
         if(state.status===200){//Login successfully
               const {id,email,firstName,lastName,isAdmin} = state.user
               setLoading(false)
-             //dispatch(setToken(state.token))
-             //dispatch(setIsLoggedIn(true))
-             //dispatch(SetEmail(email))
-             //dispatch(setFirstName(firstName))
-             //dispatch(setLastName(lastName))
-             //dispatch(SetAdmin(isAdmin))
-             //dispatch(setIsLoggedOut(false)) //Prevent double login
-             //dispatch(setID(id))
+             dispatch(setToken(state.token))
+             dispatch(setIsLoggedIn(true))
+             dispatch(SetEmail(email))
+             dispatch(setFirstName(firstName))
+             dispatch(setLastName(lastName))
+             dispatch(SetAdmin(isAdmin))
+             dispatch(setIsLoggedOut(false)) //Prevent double login
+             dispatch(setID(id))
              setServerStatus(state.status)
              setServerMessage(state.message)
              setEmailExisted(0)
              setTimeout(()=>{
-               // navigate("/home")
+               navigate("/account")
             },1000)
        
             

@@ -11,6 +11,17 @@ export const Divider =(number)=>{
      }
 }
 
+export const NumberFormatter = (x) => {
+
+     const formattedWithOptions = x.toLocaleString('en', {
+       // Other options: 'currency', 'percent', etc.
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+     return formattedWithOptions
+    // console.log(formattedWithOptions); // Output: "1,234,567.89"
+     }
+   
 
 
     
