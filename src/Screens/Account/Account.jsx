@@ -10,10 +10,12 @@ import logo from "../assets/logo.png"
 import { useSelector } from 'react-redux';
 import { NumberFormatter } from '../../components/Controllers/NumberFormater';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import creditwiselogo from "../assets/creditwise.png"
+import { useNavigate } from 'react-router-dom';
 
 const  Account = () => {
   const [value, setValue] = useState(0);
-
+  const navigate = useNavigate();
   const username =  useSelector((data)=>data.appState.firstName)
   const availableBalance =  useSelector((data)=>data.appState.availableBalance)
   const availableBalanceWhole = availableBalance.split('.')[0];
@@ -23,6 +25,10 @@ const  Account = () => {
   const currentBalance =  useSelector((data)=>data.appState.currentBalance)
   const currentBalanceWhole = currentBalance.split('.')[0];
   const currentBalanceFraction = currentBalance.split('.')[1];
+  
+  const creditScore =  useSelector((data)=>data.appState.creditScore)
+
+
   return (
     <div className='s3c0'>
 
@@ -34,7 +40,7 @@ const  Account = () => {
         <div className='s3c2'>
              <p className='s3p2'>360 Checking ...<span style={{fontSize:8}}>7642</span></p>
              <p className='s3p3'><sup>$</sup>{NumberFormatter(Number(availableBalanceWhole))} <sup style={{fontSize:20}}>{availableBalanceFraction}</sup></p>
-             <p className='s3p2'>Available Balance{availableBalance}</p>
+             <p className='s3p2'>Available Balance</p>
         </div>
 
 
@@ -45,9 +51,23 @@ const  Account = () => {
              <p className='s3p2'>Current Balance</p>
         </div>
 
-        <div className='s3c4'>
+        <div className='s3c4' onClick={()=>navigate("/signup")}>
             <AddCircleOutlineIcon   style={{color:"rgb(30, 89, 109)",marginRight:10}}/>
             <p>Open a New Account</p>
+
+        </div>
+
+        <div className='s3c5'>
+            <img src={creditwiselogo} alt='capitalone logo' />
+            <p className='s3p4'>Your Credit Score:</p>
+            <div className='s3c6'>
+            <p className='s3p5'>{creditScore}</p>
+            <div className="vl"></div>
+            <div>
+                <p>Good</p>
+                <p>Updated: Mar 20, 2024</p>
+            </div>
+            </div>
 
         </div>
 

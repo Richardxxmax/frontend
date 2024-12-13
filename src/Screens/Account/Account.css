@@ -72,8 +72,64 @@
     padding: 5px;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 44%;
+    margin-bottom: 2%;
     border-radius: 7px;
     width: 88%;
 
+}
+.s3c5{
+
+    background-color: rgb(255, 254, 254);
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: baseline;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 2%;
+    border-radius: 7px;
+    width: 88%;
+    height: 150px;
+
+
+}
+
+.s3c5 img{
+
+    width: 30%;
+    height: 35%;
+
+
+}
+
+.s3p4{
+    color: rgb(123, 120, 120);
+    font-size: 14px;
+    margin-top: 20px;
+    
+ 
+}
+
+.s3c6 {
+
+  display: flex;
+  flex-direction: row;
+ align-items: center;
+ margin-top: -30px;
+
+
+}
+
+.vl{
+    border-left: 2px solid rgb(123, 120, 120);;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.s3p5{
+    color: rgb(123, 120, 120);
+    font-size: 44px;
+    margin-top: 20px;
 }
