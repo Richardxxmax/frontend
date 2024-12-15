@@ -85,12 +85,17 @@ const  Account = () => {
 
     <Box sx={{ width: "100%" }}>
       <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
+         value={value}
+         onChange={(event, newValue) => setValue(newValue)}
+         sx={{
+           position: "fixed",
+           bottom: 0,
+           left: 0,
+           right: 0,
+           zIndex: 10, // Optional for layering
+         }}
+       >
+      
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Help" icon={<ContactSupportIcon />} />
         <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} />
