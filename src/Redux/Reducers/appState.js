@@ -12,7 +12,8 @@ const initialState = {
   profilephoto:"",
   creditScore:0,
   availableBalance:0,
-  currentBalance:0
+  currentBalance:0,
+  createdAt:""
 
 }
 
@@ -51,11 +52,13 @@ setCurrentBalance: (state,action) => {
   state.availableBalance = action.payload;
 },setCreditScore: (state,action) => {     
   state.creditScore = action.payload;
+},setCreatedAt: (state,action) => {     
+  state.createdAt= action.payload;
 },
 },
 })
 
 // Action creators are generated for each case reducer function
-export const {setFirstName,setID,setIsLoggedIn,setIsLoggedOut,setLastName,SetEmail,SetAdmin,setSuccessMessage,setToken,setCreditScore,setAvailableBalance,setCurrentBalance} = AppState.actions
+export const {setFirstName,setID,setIsLoggedIn,setIsLoggedOut,setLastName,SetEmail,SetAdmin,setSuccessMessage,setToken,setCreditScore,setAvailableBalance,setCurrentBalance,setCreatedAt} = AppState.actions
 
 export default AppState.reducer

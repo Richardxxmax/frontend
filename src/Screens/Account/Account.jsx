@@ -23,6 +23,7 @@ const  Account = () => {
 
 
   const currentBalance =  useSelector((data)=>data.appState.currentBalance)
+  const createdAt =  useSelector((data)=>data.appState.createdAt)
   const currentBalanceWhole = currentBalance.split('.')[0];
   const currentBalanceFraction = currentBalance.split('.')[1];
   
@@ -64,8 +65,8 @@ const  Account = () => {
             <p className='s3p5'>{creditScore}</p>
             <div className="vl"></div>
             <div>
-                <p>Good</p>
-                <p>Updated: Mar 20, 2024</p>
+                <p className='s3p6'>Good</p>
+                <p className='s3p7'>Updated:{createdAt}</p>
             </div>
             </div>
 
