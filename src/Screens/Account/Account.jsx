@@ -1,4 +1,4 @@
-import  React,{useState,useEffect} from 'react';
+import  React,{useState,useEffect,useRef} from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -12,14 +12,31 @@ import { NumberFormatter } from '../../components/Controllers/NumberFormater';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import creditwiselogo from "../assets/creditwise.png"
 import { useNavigate } from 'react-router-dom';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import EventIcon from '@mui/icons-material/Event';
+import HistoryIcon from '@mui/icons-material/History';
+import API from '../../API/API';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
+
 
 const  Account = () => {
+
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+  const WindowWith = windowSize.current[0]
   const [value, setValue] = useState(0);
   const navigate = useNavigate();
   const username =  useSelector((data)=>data.appState.firstName)
   const availableBalance =  useSelector((data)=>data.appState.availableBalance)
+  const userID =  useSelector((data)=>data.appState.userID)
   const availableBalanceWhole = availableBalance.split('.')[0];
   const availableBalanceFraction = availableBalance.split('.')[1];
+  const [loading,setLoading] = useState(true);
+  const [state,setState] = useState([])
 
 
   const currentBalance =  useSelector((data)=>data.appState.currentBalance)
@@ -28,12 +45,95 @@ const  Account = () => {
   const currentBalanceFraction = currentBalance.split('.')[1];
   
   const creditScore =  useSelector((data)=>data.appState.creditScore)
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [accountType,setAccounType] = useState("Available Balance");
+
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const updateAccoutType = (text)=>{
+
+          setAccounType(text);
+          handleClose();
+
+  }
+
+
+  const BasicMenu  = ()=> {
+
+  
+    return (
+      <div>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem onClick={()=>updateAccoutType("Available Balance")}>Available Balance</MenuItem>
+          <MenuItem onClick={()=>updateAccoutType("Current Balance")}>Current Balance</MenuItem>
+        </Menu>
+      </div>
+    );
+  }
+
+  const fetchTransactions = async () =>
+    {
+        setLoading(true)
+        const requestOptions = {
+        method: 'POST',
+        Accept:'application/json',
+        headers: {
+               'Content-Type': 'application/json',
+             
+               
+           },
+        body: JSON.stringify({"userID":`${userID}`})
+      };
+      
+      try {
+      
+        const response = await fetch(`${API.BASE_URL}/transactions`,requestOptions)
+        const json = await response.json();
+        var data = json
+        setState(data);   
+     
+      } 
+      catch (error) 
+      {
+        console.error(error);
+      }
+       finally 
+       {
+           setLoading(false)
+          
+      } 
+     
+  }
+  
+      useEffect(()=>{
+          if(state.status===202){//Login successfully
+                setLoading(false);
+          }},[state]);
+  
+  
 
 
   return (
     <div className='s3c0'>
-
-        <div className='s3c1'>
+      
+        
+        {value===0?
+         <div>
+                    <div className='s3c1'>
                <img src={logo} alt='capitalone logo' />
                <p>Welcome {username}</p>
         </div>
@@ -42,6 +142,7 @@ const  Account = () => {
              <p className='s3p2'>360 Checking ...<span style={{fontSize:8}}>7642</span></p>
              <p className='s3p3'><sup>$</sup>{NumberFormatter(Number(availableBalanceWhole))} <sup style={{fontSize:20}}>{availableBalanceFraction}</sup></p>
              <p className='s3p2'>Available Balance</p>
+         
         </div>
 
 
@@ -70,7 +171,92 @@ const  Account = () => {
             </div>
             </div>
 
-        </div>
+          </div>
+
+          </div>:
+
+           <div>
+
+
+           <div className='s3c1A'>
+      
+    
+             {accountType==="Available Balance"?<p className='s3p3A'><sup>$</sup>{NumberFormatter(Number(availableBalanceWhole))} <sup style={{fontSize:40}}>{availableBalanceFraction}</sup></p>:<p className='s3p3A'><sup>$</sup>{NumberFormatter(Number(currentBalance))} <sup style={{fontSize:40}}>{currentBalanceFraction}</sup></p>}
+              <div className='s3c3A'>
+                  <p className='s3p2A' onClick={handleClick} >{accountType}</p>
+                  <KeyboardArrowDownIcon  onClick={handleClick} color='white' style={{color:"white"}} />
+                  <BasicMenu />
+
+              </div>
+              <hr className="hr"></hr>
+              <div className='s3c1A2'>
+                 <p className='s3p3A2'><sup>$</sup>{NumberFormatter(Number(1786))} <sup style={{fontSize:20}}>68</sup></p>
+                 <p className='s3p3A2'>{NumberFormatter(Number(652))}</p>
+              </div>
+
+           
+       
+           </div>
+
+
+ 
+          
+           <div className='s3c8'>
+                   <div className='s3c9'>
+                      <EventIcon style={{color:"black"}} />
+                      <p className='s3p8'> No Payment Due</p>
+                   </div>
+                    <div>
+                        <p className='s3p9'> PAY BILL</p>
+                   </div>
+              </div>
+          
+              <div className='s3c10'>
+                   <div className='s3c11'>
+                      <HistoryIcon  style={{color:"black"}} />
+                      <p className='s3p9'> Transactions</p>
+                   </div>
+                    <div>
+                        <p className='s3p10'>View All</p>
+                   </div>
+              </div>
+
+               {
+                  loading===true&value===2?
+                    <div className='s3c12'>
+                      <Stack spacing={1}>
+                          {/* For variant="text", adjust the height via font-size */}
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                         <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
+                      </Stack>
+                    </div>:<div></div>
+               }
+      
+
+            
+
+
+          
+
+          
+
+       
+
+
+
+
+
+
+
+
+          </div>
+         }
+
+
 
 
 

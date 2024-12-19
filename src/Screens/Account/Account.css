@@ -21,6 +21,69 @@
     width: 25%;
     height: 30%;
 }
+.s3c1A{
+
+    background-image: url("../assets/accountbg.jpeg");
+    height: 280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.s3c1A2{
+
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.s3c3A{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.s3p3A{
+    color: rgb(215, 205, 205);
+    font-size: 64px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+.s3p3A2{
+    color: rgb(245, 230, 230);
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+.s3p1A{
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.s3c1A img{
+
+    width: 25%;
+    height: 30%;
+}
+.s3p2A{
+    color: white;
+    margin: 0;
+    margin-top: 0px;
+}
+
+.hr{
+    width: 90%;
+    border-color: rgb(103, 115, 126);
+    margin-top: 20px;
+}
+
 .s3c1{
     color: white;
 }
@@ -49,6 +112,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
 
 
 .s3c3{
@@ -144,3 +209,72 @@
     font-size: 13px;
     margin-top: 0px;
 }
+
+.s3c8{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(242, 242, 242);
+  width: "%70";
+  margin: 10px;
+  padding: 10px;
+}
+
+.s3c9{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+.s3p8{
+    color: rgba(26, 26, 28, 0.893);
+    font-size: 18px;
+    margin-left: 10px;
+
+}
+.s3p9{
+    color: rgba(15, 25, 174, 0.893);
+    font-size: 18px;
+    font-weight: bold;
+  
+}
+
+.s3c10{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(242, 242, 242);
+    width: "%70";
+    margin: 10px;
+    padding: 10px;
+  }
+  
+.s3c11{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+.s3p9{
+    color: rgba(26, 26, 28, 0.893);
+    font-size: 18px;
+    margin-left: 10px;
+
+}
+.s3p10{
+    color: rgba(15, 25, 174, 0.893);
+    font-size: 18px;
+    font-weight: bold;
+  
+}
+
+.s3c12{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(242, 242, 242);
+    width: "%70";
+    margin: 10px;
+    padding: 10px;
+  }
