@@ -1,9 +1,5 @@
-.s1c0{
 
-
-
-}
-.s1c1{
+.s4c1{
 
     display: flex;
     flex-direction: column;
@@ -11,107 +7,117 @@
     align-items: center;
     background-color: white;
     margin: auto;
-    width: 80%;
+    width: 100%;
     border: 2px solid rgb(194, 196, 194);
     padding: 10px;
-    margin-top: 70px;
+    margin-top: 0px;
 
 }
 
-.login-logo{
+.logo{
 
-    width: 250px;
-    height: 200px;
+    width: 150px;
+    height: 110px;
+    margin-bottom: 50px;
+    color: green;
 }
 
-.s1t1{
+.s4t1{
      margin-top: -30px;
      font-size: 20px;
      margin-bottom: 10px;
      color: rgb(48, 49, 49);
 }
 
-.s1t2{
+.s4t2{
     color: gray;
     margin-top: -30px;
 }
 
-.s1t3{
+.s4t3{
     color: black;
     margin-left: -230px;
     margin-bottom: 2px;
 }
-.s1t4{
+.s4t4{
     color: black;
     margin-left: -230px;
     margin-bottom: 2px;
 }
 
 
-.s1I1{
+.s4I1{
        width: 300px;
        height: 40px;
        
 }
 
 
-.s1I2{
+.s4I2{
     width: 300px;
     height: 40px;
     
 }
 
 
-.s1I2{
+.s4I2{
     width: 300px;
     height: 40px;
     
 }
-.s1I3{
+.s4I3{
     width: 25px;
     height: 25px;
     margin-top:20px;
     margin-left: -150px;
     
 }
-.s1t5{
-    color: black;
-    margin-left: 2px;
+.s4t5{
+    color: rgb(59, 143, 233);
+    margin-left: -150px;
     margin-top: 23px;
+
 }
 
-.s1c2{
+.s4c2{
 
     display: flex;
     flex-direction: row;
+    
 
 
 }
 
-.s1c3{
+.s4c3{
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     background-color: rgb(33, 88, 143);
+     background-color: rgb(46, 143, 33);
      width: 300px;
      border-radius: 5px;
 }
 
-.s1t6{
+.s4t6{
     color:white;
 }
 
-.s1t7{
+.s4t7{
     color:rgb(33, 88, 143);
     font-size: 15px;
     margin-left: -60px;
 }
-.s1t8{
+.s4t8{
     color:rgb(33, 88, 143);
     font-size: 15px;
     margin-left: -100px;
     margin-top: -20px;
+}
+
+.s4t9{
+    color: black;
+    margin-left: -200px;
+    margin-bottom: 2px;
 }
 
 

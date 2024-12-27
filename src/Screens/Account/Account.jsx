@@ -248,7 +248,7 @@ const  Account = () => {
                       <EventIcon style={{color:"black"}} />
                       <p className='s3p8'> No Payment Due</p>
                    </div>
-                    <div>
+                    <div onClick={()=>navigate("/transfer")}>
                         <p className='s3p9'> PAY BILL</p>
                    </div>
               </div>

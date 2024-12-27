@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Logo from "../assets/logo.jpeg"
-import "./Login.css"
+import "./Transfer.css"
 import Header from '../../Views/Header/Header'
 import Footer from '../../Views/Footer/footer'
 import { useNavigate } from 'react-router-dom'
@@ -12,12 +12,13 @@ import Box from '@mui/material/Box';
 import API from "../../API/API";
 import { useDispatch} from 'react-redux';
 import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken,setCreditScore,setCurrentBalance,setAvailableBalance,setCreatedAt } from "../../Redux/Reducers/appState";
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
-const Login = ()=>{
+const Transfer = ()=>{
 
     const dispatch = useDispatch();
     const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
+    const [amount,setAmount] = useState("")
     const [isLoading, setLoading] = useState(false);
     const [validation,setValidation]= useState(false)
     const [emailExisted,setEmailExisted] = useState(0)
@@ -69,7 +70,7 @@ const Login = ()=>{
       
       
 
-    const SignIn = async ()=> {
+    const TransferFunds = async ()=> {
  
            
               if(email===""){
@@ -92,7 +93,7 @@ const Login = ()=>{
                 headers: {
                        'Content-Type': 'application/json',
                    },
-                body: JSON.stringify({"email":`${email}`,"password":`${password}`})
+                body: JSON.stringify({"email":`${email}`,"amount":`${amount}`})
               };
    
               try {
@@ -165,29 +166,35 @@ const Login = ()=>{
         {serverStatus===406?<WarningAlert text={serverMessage} />:<div></div>}
         {serverStatus===500?<ErrorAlert text={serverMessage} />:<div></div>}
 
-        <div className='s1c1' >
-          <img src={Logo} className='login-logo' alt = "capitalone logo" />
-          <h6 className='s1t1'>Sign in</h6>
+        <div className='s4c1' >
+        
+          <MonetizationOnIcon className='logo' />
+          <h6 className='s4t1'>Transfer Money</h6>
 
-          <p className='s1t3'>Username</p>
+          <p className='s4t3'>Transfer To</p>
           <input  onChange={(e)=>setEmail(e.target.value)} type='text' className='s1I1' />
 
+          <p className='s4t3'>Frequency </p>
+          <input  onChange={(e)=>setEmail(e.target.value)} type='text' className='s1I1' />
+           
 
-          <p className='s1t4'>Password</p>
-          <input onChange={(e)=>setPassword(e.target.value)} type='password' className='s1I2' />
+          <p className='s4t9'>Transfer Date(!)</p>
+          <input onChange={(e)=>setAmount(e.target.value)} type='date' className='s1I2' />
 
-         <div className='s1c2'> 
-         <input className='s1I3' type="checkbox"  />
-         <p className='s1t5'>Remember Me</p>
+          <p className='s4t4'>Amount($)</p>
+          <input onChange={(e)=>setAmount(e.target.value)} type='number' className='s1I2' />
+
+         <div className='s4c2'> 
+         <p className='s4t5'> + Add a memo</p>
          </div>
 
-         <div onClick={()=>SignIn()} className='s1c3'>
-            {isLoading?<FacebookCircularProgress />:<p className='s1t6'>Sign in</p>}
+
+         <div onClick={()=>TransferFunds()} className='s4c3'>
+            {isLoading?<FacebookCircularProgress />:<p className='s4t6'>Transfer</p>}
          </div>
  
-         <h6 className='s1t7'>Forgot Username or Password?</h6>
-
-         <h6 onClick={()=>navigate("signup")} className='s1t8'>Set Up an Online Access?</h6>
+         <p className='s4t7'>By clicking the "Transfer" button, I authorize Capital</p>
+         <p className='s4t7'>One to transfer my money as indicated</p>
         </div>
 
         {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}
@@ -204,4 +211,4 @@ const Login = ()=>{
 }
 
 
-export default Login;
+export default Transfer;
