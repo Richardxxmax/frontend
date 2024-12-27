@@ -13,7 +13,7 @@ import API from "../../API/API";
 import { useDispatch} from 'react-redux';
 import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken,setCreditScore,setCurrentBalance,setAvailableBalance,setCreatedAt } from "../../Redux/Reducers/appState";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 const Transfer = ()=>{
 
     const dispatch = useDispatch();
@@ -178,7 +178,7 @@ const Transfer = ()=>{
           <input  onChange={(e)=>setEmail(e.target.value)} type='text' className='s1I1' />
            
 
-          <p className='s4t9'>Transfer Date(!)</p>
+          <p className='s4t9'>Transfer Date<ErrorOutlineIcon className='s4t9B' /></p>
           <input onChange={(e)=>setAmount(e.target.value)} type='date' className='s1I2' />
 
           <p className='s4t4'>Amount($)</p>
