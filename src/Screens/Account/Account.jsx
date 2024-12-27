@@ -35,7 +35,7 @@ const  Account = () => {
   const userID =  useSelector((data)=>data.appState.userID)
   const availableBalanceWhole = availableBalance.split('.')[0];
   const availableBalanceFraction = availableBalance.split('.')[1];
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(false);
   const [state,setState] = useState([])
 
 
@@ -87,7 +87,6 @@ const  Account = () => {
 
   const fetchTransactions = async () =>
     {
-        setLoading(true)
         const requestOptions = {
         method: 'POST',
         Accept:'application/json',
@@ -104,27 +103,30 @@ const  Account = () => {
         const response = await fetch(`${API.BASE_URL}/transactions`,requestOptions)
         const json = await response.json();
         var data = json
-        setState(data);   
+        setState(data);  
+         
      
       } 
       catch (error) 
       {
         console.error(error);
       }
-       finally 
-       {
-           setLoading(false)
-          
-      } 
+     
      
   }
   
       useEffect(()=>{
           if(state.status===202){//Login successfully
                 setLoading(false);
-          }},[state]);
+          }else if(state.status!==202){
+            setLoading(true)
+          }
+        
+        },[state]);
   
-  
+  if(value===2){
+   fetchTransactions(); 
+  }
 
 
   return (
@@ -233,7 +235,11 @@ const  Account = () => {
                          <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
                          <Skeleton animation={true} variant="rounded" width={WindowWith * 0.91} height={60} />
                       </Stack>
-                    </div>:<div></div>
+                    </div>:
+                     <div>
+
+
+                    </div>
                }
       
 

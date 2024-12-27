@@ -85,24 +85,23 @@ const Login = ()=>{
              if(validation===true)
             {
                 setLoading(true)
+                console.log("H")
+            
               const requestOptions = {
                 method: 'POST',
                 Accept:'application/json',
                 headers: {
                        'Content-Type': 'application/json',
-                     
-                       
                    },
                 body: JSON.stringify({"email":`${email}`,"password":`${password}`})
               };
-              
+   
               try {
-              
+                alert("hi") 
                 const response = await fetch(`${API.BASE_URL}/login`,requestOptions)
                 const json = await response.json();
                 var data = json
-                setState(data);   
-             
+                setState(data);  
               } 
               catch (error) 
               {
