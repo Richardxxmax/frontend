@@ -56,6 +56,34 @@ const  Account = () => {
     setAnchorEl(null);
   };
 
+  const dat = [
+    {
+      id: 1,
+      userID: 10,
+      amount: '345',
+      transactionType: 'card',
+      transactionDate: 'December 15th 2024, 8:46:35 pm',
+      status: 'pending',
+      purpose: 'Grocery',
+      receiver: 'CREDIT-TRAVEL REWARD',
+      updatedAt: 'December 15th 2024, 8:46:35 pm',
+      createdAt: 'December 15th 2024, 8:46:35 pm'
+    },
+    {
+      id: 2,
+      userID: 10,
+      amount: '6.29',
+      transactionType: 'Merchandise',
+      transactionDate: 'December 15th 2024, 8:46:35 pm',
+      status: 'pending',
+      purpose: 'Merchandise',
+      receiver: 'Safeway',
+      updatedAt: 'December 15th 2024, 8:46:35 pm',
+      createdAt: 'December 15th 2024, 8:46:35 pm'
+    }
+  ]
+  
+
   const updateAccoutType = (text)=>{
 
           setAccounType(text);
@@ -85,25 +113,25 @@ const  Account = () => {
     );
   }
 
-  const fetchTransactions = async () =>
-    {
+
+
+  const fetchTransactions = async () =>{
         const requestOptions = {
         method: 'POST',
         Accept:'application/json',
         headers: {
                'Content-Type': 'application/json',
-             
-               
            },
         body: JSON.stringify({"userID":`${userID}`})
       };
       
       try {
       
-        const response = await fetch(`${API.BASE_URL}/transactions`,requestOptions)
+        const response = await fetch(`${API.BASE_URL}/gettransactions`,requestOptions)
         const json = await response.json();
         var data = json
         setState(data);  
+        
          
      
       } 
@@ -115,8 +143,11 @@ const  Account = () => {
      
   }
   
+
+
+
       useEffect(()=>{
-          if(state.status===202){//Login successfully
+          if(state.status===200){//data received successfully
                 setLoading(false);
           }else if(state.status!==202){
             setLoading(true)
@@ -124,7 +155,7 @@ const  Account = () => {
         
         },[state]);
   
-  if(value===2){
+  if(value===2&&loading===true){
    fetchTransactions(); 
   }
 
@@ -177,7 +208,16 @@ const  Account = () => {
 
           </div>:
 
+          <div>
+           {value===1?
            <div>
+
+              { window.location.href = "https://www.capitalone.com/help-center"}
+
+           </div>:
+
+
+          <div>
 
 
            <div className='s3c1A'>
@@ -237,9 +277,24 @@ const  Account = () => {
                       </Stack>
                     </div>:
                      <div>
+                       {
+                         state.transactions.slice(0, 5).map((data)=>
+                          <div className='s3c13'>
+                          <div className='s3c14'>
+                             <p className={data.status==="pending"?"s3p11":"s3p12"} >{data.receiver}</p>
+                             <p className={data.status==="pending"?"s3p11":"s3p13"}>{data.status==="pending"?" ":"-"}${data.amount}</p>
+                          </div>
+                          <div className='s3c14'>
+                             <p className={data.status==="pending"?"s3p11":"s3p11"}>{data.purpose}</p>
+                             {data.status==="pending"?<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.status}</p>:<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.createdAt.slice(0,3)} {data.createdAt.slice(16,18)}</p>}
+                          </div>
+                          </div>
+                         )
 
-
+                       }
+                     
                     </div>
+              
                }
       
 
@@ -259,6 +314,8 @@ const  Account = () => {
 
 
 
+          </div>
+         }
           </div>
          }
 
