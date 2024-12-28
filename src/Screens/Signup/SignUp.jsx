@@ -176,7 +176,7 @@ function FacebookCircularProgress(props) {
          setEmailExisted(0)
          //dispatch(setSuccessMessage("Account Created Successfully"))
          setTimeout(()=>{
-           navigate("/")
+           navigate("/login")
          },4000)
 
         }else if(state.status===403){
