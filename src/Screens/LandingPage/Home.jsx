@@ -28,7 +28,7 @@ const Home = ()=>{
         <div>
 
          <div >
-        <img src={page0}  style={{width: WindowWith * 1.0 }} />
+        <img src={page0}  style={{width: WindowWith * 1.0 }} onClick={()=>navigate("/login")} />
         <img src={page1}  style={{width: WindowWith * 1.0 }} />
         <img src={page2}  style={{width: WindowWith * 1.0 }} />
 
