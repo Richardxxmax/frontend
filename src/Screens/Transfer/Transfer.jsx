@@ -14,6 +14,7 @@ import { useDispatch} from 'react-redux';
 import { setFirstName,setLastName,setID,setIsLoggedIn,setIsLoggedOut,SetEmail,SetAdmin,setToken,setCreditScore,setCurrentBalance,setAvailableBalance,setCreatedAt } from "../../Redux/Reducers/appState";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const Transfer = ()=>{
 
     const dispatch = useDispatch();
@@ -26,6 +27,11 @@ const Transfer = ()=>{
     const [state,setState] = useState([]);
     const [serverStatus,setServerStatus] = useState(0);
     const [serverMessage,setServerMessage] = useState("");
+    const [frequency,setFrequency] = useState("One Time")
+    const [frequencyDropDown,setFrequencyDropDown] = useState(false)
+    const [transferFrom,setTransferFrom] = useState("360 Checking ...7642")
+    const [transferFromDropDown,setTransferFromDropDown] = useState(false)
+
     const navigate = useNavigate();
 
 
@@ -74,7 +80,7 @@ const Transfer = ()=>{
  
            
               if(email===""){
-                  setValidation(false);
+                  setValidation(true);
                   setInvalideEmail(1);
               }else {
                   setInvalideEmail(0);
@@ -170,12 +176,49 @@ const Transfer = ()=>{
         
           <MonetizationOnIcon className='logo' />
           <h6 className='s4t1'>Transfer Money</h6>
+       
+          <p className='s4t3'>Transfer From </p>
+          <div className='s4c4'
+              onClick={()=>setTransferFromDropDown(~transferFromDropDown)}
+            >
+             <p>{transferFrom}</p>
+             <KeyboardArrowDownIcon />
+          </div>
+          {transferFromDropDown?
+           <div>
+               <p onClick={()=>{setTransferFrom("360 Checking ...7642");setTransferFromDropDown(~transferFromDropDown)}}>
+                  360 Checking ...7642
+               </p>
+               <p onClick={()=>{setTransferFrom("VENTURE...8292");setTransferFromDropDown(~transferFromDropDown)}}>
+               VENTURE...8292
+               </p>
+           </div>:<div></div>}
 
           <p className='s4t3'>Transfer To</p>
           <input  onChange={(e)=>setEmail(e.target.value)} type='text' className='s1I1' />
 
           <p className='s4t3'>Frequency </p>
-          <input  onChange={(e)=>setEmail(e.target.value)} type='text' className='s1I1' />
+          <div className='s4c4'
+              onClick={()=>setFrequencyDropDown(~frequencyDropDown)}
+            >
+             <p>{frequency}</p>
+             <KeyboardArrowDownIcon />
+          </div>
+          {frequencyDropDown?
+           <div>
+               <p onClick={()=>{setFrequency("One Time");setFrequencyDropDown(~frequencyDropDown)}}>
+                 One Time
+               </p>
+               <p onClick={()=>{setFrequency("Every Day");setFrequencyDropDown(~frequencyDropDown)}}>
+                Every Day
+               </p>
+               <p onClick={()=>{setFrequency("Every Month");setFrequencyDropDown(~frequencyDropDown)}}>
+                Every Month
+              </p>
+              <p onClick={()=>{setFrequency("Every Year");setFrequencyDropDown(~frequencyDropDown)}}>
+               Every Year
+              </p>
+           </div>:<div></div>}
            
 
           <p className='s4t9'>Transfer Date<ErrorOutlineIcon className='s4t9B' /></p>

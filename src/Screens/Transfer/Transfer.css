@@ -103,9 +103,10 @@
 }
 
 .s4t7{
-    color:rgb(33, 88, 143);
-    font-size: 15px;
-    margin-left: -60px;
+    color:rgb(175, 178, 181);
+    font-size: 10px;
+    margin-left: 0px;
+    margin-bottom: 0px;
 }
 .s4t8{
     color:rgb(33, 88, 143);
@@ -125,6 +126,19 @@
     margin-bottom: -5px;
 }
 
+.s4c4{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   width: 67%;
+   border-radius: 2px;
+   border-width: 1px;
+   border-color: black;
+   border-style: solid;
+   padding-left:10px;
+   padding-right: 10px;
+}
 
 
 
