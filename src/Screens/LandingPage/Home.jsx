@@ -14,6 +14,7 @@ import page4 from "./p4.png"
 import page5 from "./p5.png"
 import page6 from "./p6.png"
 import page7 from "./p7.png"
+import page8 from "./p8.png"
 
 
 
@@ -42,11 +43,12 @@ const Home = ()=>{
         <img src={page5}  style={{width: WindowWith * 1.0 }} />
         <img src={page6}  style={{width: WindowWith * 1.0 }} />
         <img src={page7}  style={{width: WindowWith * 1.0 }} />
+        <img src={page8}  style={{width: WindowWith * 1.0 }} />
 
 
             
          </div>
-        <Footer />
+
         </div>
     )
 
