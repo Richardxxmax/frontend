@@ -13,6 +13,8 @@ import page3 from "./p3.png"
 import page4 from "./p4.png"
 import page5 from "./p5.png"
 import page6 from "./p6.png"
+import page7 from "./p7.png"
+
 
 
 const Home = ()=>{
@@ -39,6 +41,7 @@ const Home = ()=>{
         <img src={page4}  style={{width: WindowWith * 1.0 }} />
         <img src={page5}  style={{width: WindowWith * 1.0 }} />
         <img src={page6}  style={{width: WindowWith * 1.0 }} />
+        <img src={page7}  style={{width: WindowWith * 1.0 }} />
 
 
             
