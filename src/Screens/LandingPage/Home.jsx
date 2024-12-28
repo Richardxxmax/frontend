@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch} from 'react-redux';
 import page1 from "./p1.png"
+import page2 from "./p2.png"
 
 
 const Home = ()=>{
@@ -28,6 +29,7 @@ const Home = ()=>{
    
          <div >
         <img src={page1}  style={{width: WindowWith * 1.0 }} />
+        <img src={page2}  style={{width: WindowWith * 1.0 }} />
 
             
          </div>
