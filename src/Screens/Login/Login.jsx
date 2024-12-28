@@ -187,7 +187,7 @@ const Login = ()=>{
  
          <h6 className='s1t7'>Forgot Username or Password?</h6>
 
-         <h6 onClick={()=>navigate("signup")} className='s1t8'>Set Up an Online Access?</h6>
+         <h6 onClick={()=>navigate("/signup")} className='s1t8'>Set Up an Online Access?</h6>
         </div>
 
         {serverStatus===200?<SuccessAlert text={serverMessage} />:<div></div>}

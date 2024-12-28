@@ -12,6 +12,7 @@ import page2 from "./p2.png"
 import page3 from "./p3.png"
 import page4 from "./p4.png"
 import page5 from "./p5.png"
+import page6 from "./p6.png"
 
 
 const Home = ()=>{
@@ -30,13 +31,14 @@ const Home = ()=>{
     return(
         <div>
 
-         <div >
+         <div  className='a' >
         <img src={page0}  style={{width: WindowWith * 1.0 }} onClick={()=>navigate("/login")} />
         <img src={page1}  style={{width: WindowWith * 1.0 }} />
         <img src={page2}  style={{width: WindowWith * 1.0 }} />
         <img src={page3}  style={{width: WindowWith * 1.0 }} />
         <img src={page4}  style={{width: WindowWith * 1.0 }} />
         <img src={page5}  style={{width: WindowWith * 1.0 }} />
+        <img src={page6}  style={{width: WindowWith * 1.0 }} />
 
 
             

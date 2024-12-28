@@ -1,15 +1,11 @@
 
-.s5c5{
+.a{
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: white;
     margin: auto;
     width: 100%;
-    border: 2px solid rgb(194, 196, 194);
-    padding: 10px;
     margin-top: 0px;
 
 }
