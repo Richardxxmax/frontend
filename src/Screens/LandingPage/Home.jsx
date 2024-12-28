@@ -6,6 +6,7 @@ import Footer from '../../Views/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 
 import { useDispatch} from 'react-redux';
+import page0 from "./p0.png"
 import page1 from "./p1.png"
 import page2 from "./p2.png"
 
@@ -25,9 +26,9 @@ const Home = ()=>{
         
     return(
         <div>
-        <Header />
-   
+
          <div >
+        <img src={page0}  style={{width: WindowWith * 1.0 }} />
         <img src={page1}  style={{width: WindowWith * 1.0 }} />
         <img src={page2}  style={{width: WindowWith * 1.0 }} />
 
