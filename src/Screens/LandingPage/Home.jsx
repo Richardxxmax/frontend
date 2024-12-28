@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import Logo from "../assets/logo.jpeg"
 import "./Home.css"
 import Header from '../../Views/Header/Header'
@@ -10,6 +10,8 @@ import page1 from "./p1.png"
 
 
 const Home = ()=>{
+    const windowSize = useRef([window.innerWidth, window.innerHeight]);
+    const WindowWith = windowSize.current[0]
 
     const dispatch = useDispatch();
     
@@ -25,7 +27,7 @@ const Home = ()=>{
         <Header />
    
          <div >
-        <img src={page1}  className='page1' />
+        <img src={page1}  style={{width: WindowWith * 1.0 }} />
 
             
          </div>
