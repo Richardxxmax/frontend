@@ -286,7 +286,7 @@ const  Account = () => {
                           </div>
                           <div className='s3c14'>
                              <p className={data.status==="pending"?"s3p11":"s3p11"}>{data.purpose}</p>
-                             {data.status==="pending"?<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.status}</p>:<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.createdAt.slice(0,3)} {data.createdAt.slice(16,18)}</p>}
+                             {data.status==="pending"?<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.status}</p>:<p className={data.status==="pending"?"s3p11":"s3p11"}>{data.createdAt.slice(0,3)} {data.createdAt.slice(8,18)}</p>}
                           </div>
                            
                           </div>
